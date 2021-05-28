@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="tkinter:jar">
+    <output-path>$PROJECT_DIR$/classes/artifacts/tkinter_jar</output-path>
+    <root id="archive" name="tkinter.jar">
+      <element id="module-output" name="tkinter" />
+    </root>
+  </artifact>
+</component>
