@@ -6,6 +6,7 @@ import javax.swing.*;
 
 public final class Text extends Widget {
 	public JScrollPane scrollPane;
+	public JTextArea component;
 	
 	public Text(Master master, String text, int rows, int columns) {
 		super(master);
@@ -32,15 +33,15 @@ public final class Text extends Widget {
 	}
 	
 	public void setEditable(boolean b) {
-		((JTextArea) this.component).setEditable(b);
+		this.component.setEditable(b);
 	}
 	
 	public void setEditable() {
-		((JTextArea) this.component).setEditable(!((JTextArea) this.component).isEditable());
+		this.component.setEditable(!this.component.isEditable());
 	}
 	
 	public void bind(String key, Function function) {
-		((JTextArea) this.component).addKeyListener(new KeyListener() {
+		this.component.addKeyListener(new KeyListener() {
 			public void keyTyped(KeyEvent e) {
 				if (key.equals(String.valueOf(e.getKeyChar()))) {
 					function.call();
@@ -53,11 +54,11 @@ public final class Text extends Widget {
 	}
 	
 	public String get() {
-		return ((JTextArea) this.component).getText();
+		return this.component.getText();
 	}
 	
 	public void write(String string) {
-		((JTextArea) this.component).append(string + "\n");
+		this.component.append(string + "\n");
 	}
 	
 	public void grid(int row, int column, int rowspan, int columnspan) {

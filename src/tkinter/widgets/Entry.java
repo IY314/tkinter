@@ -4,10 +4,10 @@ import tkinter.*;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
 import javax.swing.JTextField;
 
 public final class Entry extends Widget {
+	public JTextField component;
 
 	public Entry(Master master, String text) {
 		super(master);
@@ -30,7 +30,7 @@ public final class Entry extends Widget {
 	}
 	
 	public void bind(String key, Function function) {
-		((JTextField) this.component).addKeyListener(new KeyListener() {
+		this.component.addKeyListener(new KeyListener() {
 			public void keyTyped(KeyEvent e) {
 				if (key.equals(String.valueOf(e.getKeyChar()))) {
 					function.call();
@@ -43,6 +43,6 @@ public final class Entry extends Widget {
 	}
 	
 	public String get() {
-		return ((JTextField) this.component).getText();
+		return this.component.getText();
 	}
 }
